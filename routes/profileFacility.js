@@ -7,7 +7,7 @@ const saltRounds = 14;
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 router.get("/profileFacility", ensureLoggedIn(), (req, res, next) => {
-  res.render("facility/profile", { facility: req.user });
+  res.render("facility/profile");
 });
 
 module.exports = router;

@@ -20,7 +20,7 @@ router.post("/search", ensureLoggedIn(), (req, res, next) => {
   });
   search.save(err => {
     if (err) return next(err);
-    res.redirect("/");
+    res.redirect("/profileUser");
   });
 });
 

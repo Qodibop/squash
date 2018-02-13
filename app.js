@@ -41,38 +41,17 @@ app.use(
   })
 );
 
+//Merci Eduardo
 passport.serializeUser((facility, cb) => {
-  cb(null, facility.id);
+  cb(null, { id: facility.id, isUser: facility.username });
 });
 
-passport.deserializeUser((id, cb) => {
-  Facility.findById(id, cb);
+passport.deserializeUser(({ id, isUser }, cb) => {
+  if (isUser) User.findById(id, cb);
+  else Facility.findById(id, cb);
 });
 
 app.use(flash());
-//Passport strategy user
-passport.use(
-  "user-login",
-  new LocalStrategy(
-    {
-      usernameField: "username",
-      passReqToCallback: true
-    },
-    (req, username, password, done) => {
-      User.findOne({ username }, (err, user) => {
-        if (err) return done(err);
-        if (!user) {
-          return done(null, false, { message: "Incorrect username" });
-        }
-        bcrypt.compare(password, user.password, (err, isTheSame) => {
-          if (err) return done(err);
-          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
-          done(null, user);
-        });
-      });
-    }
-  )
-);
 
 //Passport strategy facility
 passport.use(
@@ -99,23 +78,47 @@ passport.use(
   )
 );
 
+//Passport strategy user
+passport.use(
+  "user-login",
+  new LocalStrategy(
+    {
+      usernameField: "username",
+      passReqToCallback: true
+    },
+    (req, username, password, done) => {
+      User.findOne({ username }, (err, user) => {
+        if (err) return done(err);
+        if (!user) {
+          return done(null, false, { message: "Incorrect username" });
+        }
+        bcrypt.compare(password, user.password, (err, isTheSame) => {
+          if (err) return done(err);
+          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
+          done(null, user);
+        });
+      });
+    }
+  )
+);
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 //if bug, it's probably here
 app.use((req, res, next) => {
+  res.locals.facility = req.user;
   res.locals.user = req.user;
-  res.locals.facility = req.facility;
   res.locals.errors = req.flash("error");
   next();
 });
 
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/authUser"));
-app.use("/", require("./routes/profileUser"));
-app.use("/", require("./routes/search"));
 app.use("/", require("./routes/authFacility"));
 app.use("/", require("./routes/profileFacility"));
+app.use("/", require("./routes/profileUser"));
+app.use("/", require("./routes/search"));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
