@@ -8,6 +8,7 @@ const ejsLayout = require("express-ejs-layouts");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/user");
+const Facility = require("./models/facility");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -33,25 +34,25 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
-    secret: "ironfundingdev",
+    secret: "squashProject",
     resave: false,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
-passport.serializeUser((user, cb) => {
-  cb(null, user.id);
+passport.serializeUser((facility, cb) => {
+  cb(null, facility.id);
 });
 
 passport.deserializeUser((id, cb) => {
-  User.findById(id, cb);
+  Facility.findById(id, cb);
 });
 
 app.use(flash());
-
+//Passport strategy user
 passport.use(
-  "local-login",
+  "user-login",
   new LocalStrategy(
     {
       usernameField: "username",
@@ -73,11 +74,38 @@ passport.use(
   )
 );
 
+//Passport strategy facility
+passport.use(
+  "facility-login",
+  new LocalStrategy(
+    {
+      usernameField: "facilityemail",
+      passReqToCallback: true
+    },
+    (req, facilityemail, password, done) => {
+      console.log("DEBUG facilityemail", facilityemail);
+      Facility.findOne({ facilityemail }, (err, facility) => {
+        if (err) return done(err);
+        if (!facility) {
+          return done(null, false, { message: "Incorrect email" });
+        }
+        bcrypt.compare(password, facility.password, (err, isTheSame) => {
+          if (err) return done(err);
+          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
+          done(null, facility);
+        });
+      });
+    }
+  )
+);
+
 app.use(passport.initialize());
 app.use(passport.session());
 
+//if bug, it's probably here
 app.use((req, res, next) => {
   res.locals.user = req.user;
+  res.locals.facility = req.facility;
   res.locals.errors = req.flash("error");
   next();
 });
@@ -86,6 +114,8 @@ app.use("/", require("./routes/index"));
 app.use("/", require("./routes/authUser"));
 app.use("/", require("./routes/profileUser"));
 app.use("/", require("./routes/search"));
+app.use("/", require("./routes/authFacility"));
+app.use("/", require("./routes/profileFacility"));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

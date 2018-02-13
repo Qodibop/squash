@@ -1,0 +1,63 @@
+<h1>Edit
+    <%= facility._id %>
+</h1>
+
+<form action="/facility/<%= facility._id %>" method="POST">
+    <label>
+        Name
+        <input type="text" name="name" value="<%= facility.name %>">
+    </label>
+    <br/>
+
+    <label>
+        Email
+        <input type="text" name="email" value="<%= facility.email %>">
+    </label>
+    <br/>
+
+    <label>
+        Address
+        <textarea type="text" name="address"><%= facility.address %></textarea>
+    </label>
+    <br/>
+
+    <label>
+        Postal Code
+        <input type="number" name="postalCode" value="<%= facility.postalCode %>">
+    </label>
+    <br/>
+
+    <label>
+        Phone Number
+        <input type="number" name="phone" value="<%= facility.phone %>">
+    </label>
+    <br/>
+
+
+    <label>
+        Facility Type
+        <input type="text" name="facilityType" value="<%= facility.facilityType %>">
+    </label>
+    <br/>
+
+    <label>
+        Description
+        <textarea type="text" name="description"><%= facility.description %></textarea>
+    </label>
+    <br/>
+
+    <label>
+        Openin Days
+        <textarea type="text" name="openingDays"><%= facility.openingDays %></textarea>
+    </label>
+    <br/>
+
+    <label>
+        Website
+        <input type="text" name="website" value="<%= facility.website %>">
+    </label>
+    <br/>
+
+
+    <button type="submit">Save</button>
+</form>

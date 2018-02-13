@@ -9,11 +9,11 @@ const bcrypt = require("bcrypt");
 const saltRounds = 14;
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
-router.get("/signup", ensureLoggedOut(), (req, res, next) => {
+router.get("/signupUser", ensureLoggedOut(), (req, res, next) => {
   res.render("authUser/signup");
 });
 
-router.post("/signup", ensureLoggedOut(), upload.single("user-picture"), (req, res, next) => {
+router.post("/signupUser", ensureLoggedOut(), upload.single("user-picture"), (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const address = req.body.address;
@@ -21,7 +21,7 @@ router.post("/signup", ensureLoggedOut(), upload.single("user-picture"), (req, r
 
   if (!password) {
     req.flash("error", "Password is required");
-    return res.redirect("/signup");
+    return res.redirect("/signupUser");
   }
 
   bcrypt.genSalt(saltRounds, (err, salt) => {
@@ -41,38 +41,38 @@ router.post("/signup", ensureLoggedOut(), upload.single("user-picture"), (req, r
         if (err) {
           if (err.code === 11000) {
             req.flash("error", `A user with username ${username} already exists`);
-            return res.redirect("/signup");
+            return res.redirect("/signupUser");
           } else if (user.errors) {
             Object.values(user.errors).forEach(error => {
               req.flash("error", error.message);
             });
-            return res.redirect("/signup");
+            return res.redirect("/signupUser");
           }
         }
         if (err) return next(err);
-        res.redirect("/login");
+        res.redirect("/loginUser");
       });
     });
   });
 });
 
-router.get("/login", ensureLoggedOut(), (req, res, next) => {
+router.get("/loginUser", ensureLoggedOut(), (req, res, next) => {
   res.render("authUser/login");
 });
 
 router.post(
-  "/login",
+  "/loginUser",
   ensureLoggedOut(),
-  passport.authenticate("local-login", {
+  passport.authenticate("user-login", {
     successRedirect: "/profileUser",
-    failureRedirect: "/login",
+    failureRedirect: "/loginUser",
     failureFlash: true
   })
 );
 
 router.get("/logout", ensureLoggedIn(), (req, res, next) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
 
 module.exports = router;

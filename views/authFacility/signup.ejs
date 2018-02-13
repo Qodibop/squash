@@ -1,0 +1,72 @@
+<form method="POST" action="/signupFacility">
+  <label>
+    Email address:
+    <input type="text" name="facilityemail">
+  </label>
+  <br>
+  <label>
+    Password:
+    <input type="password" name="password">
+  </label>
+
+  <label>
+    Facility Name
+    <input type="text" name="name">
+  </label>
+  <br/>
+
+  <label>
+    Address
+    <textarea type="text" name="address"></textarea>
+  </label>
+  <br/>
+
+  <label>
+    Postal Code
+    <input type="number" name="postalCode">
+  </label>
+  <br/>
+
+  <label>
+    Phone Number
+    <input type="text" name="phone">
+  </label>
+  <br/>
+
+
+  <label>
+    Facility Type
+    <input type="text" name="facilityType">
+  </label>
+  <br/>
+
+  <label>
+    Description
+    <textarea type="text" name="description"></textarea>
+  </label>
+  <br/>
+
+  <label>
+    Opening Days
+    <textarea type="text" name="openingDays"></textarea>
+  </label>
+  <br/>
+
+  <label>
+    Website
+    <input type="text" name="website">
+  </label>
+  <br/>
+
+  <button>Signup</button>
+</form>
+
+<button>
+  <a href="/">Back to Menu</a>
+</button>
+
+<br/>
+<p>Already registered?</p>
+<button>
+  <a href="/loginFacility">Login</a>
+</button>
