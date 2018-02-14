@@ -5,6 +5,8 @@ const searchSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: "User" },
   username: { type: String, ref: "User.username" },
   userPic: { type: String, ref: "User.picPath" },
+  address: String,
+  zipcode: String,
   localisation: String,
   day: String,
   time: String

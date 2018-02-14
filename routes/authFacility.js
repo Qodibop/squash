@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "public/uploads/facility-pictures" });
 const Facility = require("../models/facility");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
@@ -10,11 +12,12 @@ router.get("/signupFacility", ensureLoggedOut(), (req, res, next) => {
   res.render("authFacility/signup");
 });
 
-router.post("/signupFacility", ensureLoggedOut(), (req, res, next) => {
+router.post("/signupFacility", ensureLoggedOut(), upload.single("facility-picture"), (req, res, next) => {
   const facilityemail = req.body.facilityemail;
   const password = req.body.password;
   const name = req.body.name;
   const address = req.body.address;
+  const zipcode = req.body.zipcode;
   const postalCode = req.body.postalCode;
   const phone = req.body.phone;
   const description = req.body.description;
@@ -47,27 +50,29 @@ router.post("/signupFacility", ensureLoggedOut(), (req, res, next) => {
         facilityemail,
         password: hash,
         name,
+        picPath: req.file ? `/uploads/facility-pictures/${req.file.filename}` : null,
+        picName: req.file ? req.file.originalname : null,
         address,
-        postalCode,
+        // postalCode,
         phone,
         description,
         openingDays,
         website,
-        facilityType
+        facilityType,
+        zipcode
       });
       facility.save(err => {
         if (err) {
           if (err.code === 11000) {
             req.flash("error", `The following email: ${facilityemail} already exists`);
-            return res.redirect("/signupFacility");
+            res.redirect("/signupFacility");
           } else if (facility.errors) {
             Object.values(facility.errors).forEach(error => {
               req.flash("error", error.message);
             });
-            return res.redirect("/signupFacility");
+            res.redirect("/signupFacility");
           }
         }
-        if (err) return next(err);
         res.redirect("/loginFacility");
       });
     });

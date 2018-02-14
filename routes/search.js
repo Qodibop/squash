@@ -9,6 +9,8 @@ router.get("/search", ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post("/search", ensureLoggedIn(), (req, res, next) => {
+  const address = req.body.address;
+  const zipcode = req.body.zipcode;
   const localisation = req.body.localisation;
   const day = req.body.day;
   const time = req.body.time;
@@ -16,6 +18,8 @@ router.post("/search", ensureLoggedIn(), (req, res, next) => {
     userId: req.user.id,
     username: req.user.username,
     userPic: req.user.picPath,
+    address,
+    zipcode,
     localisation,
     day,
     time
