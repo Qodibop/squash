@@ -1,0 +1,52 @@
+<h1>Researh a new game</h1>
+
+<% matching.forEach((match) => { %>
+  <div class="box">
+    <img src='<%= match.userPic %>' width=40 />
+    <%= match.username %>
+    <%= match.location %>
+    <%= match.day %>
+    <%= match.time %>
+    <button><i class="fas fa-chevron-circle-right"></i> Challenge</button>
+  </div>
+<% }) %>
+  </br>
+
+
+  <form action="/search" method="post" id="search-game-form">
+    <label>Arrondissement :
+      <select name="localisation" id="localisation">
+        <option value="1er arrondissement">1er</option>
+        <option value="2ème arrondissement" selected>2ème</option>
+        <option value="3ème arrondissement">3ème</option>
+      </select>
+    </label>
+    <br>
+    <label>Jour :
+      <select name="day" id="day">
+        <option value="vendredi">vendredi</option>
+        <option value="samedi" selected>samedi</option>
+        <option value="dimanche">dimanche</option>
+      </select>
+    </label>
+    <br>
+    <label>Créneau :
+      <select name="time" id="time">
+        <option value="07:00 - 09:00">07:00 - 09:00</option>
+        <option value="18:00 - 20:00" selected>18:00 - 20:00</option>
+        <option value="20:00 - 22:00">20:00 - 22:00</option>
+      </select>
+    </label>
+    </br>
+    <button class="btn btn-primary" id="searchGame">Search</button>
+  </form>
+
+  <hr>
+
+  <div class="text-center">
+    <button class="btn btn-primary" id="saveSearch">Post New Game</button>
+
+    <a href="/profileUser">
+      <button class="btn btn-primary" id="backToProfile">Back to profile</button>
+    </a>
+  </div>

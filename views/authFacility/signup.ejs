@@ -1,4 +1,4 @@
-<form method="POST" action="/signupFacility">
+<form method="POST" action="/signupFacility" class="text-center">
   <label>
     Email address:
     <input type="text" name="facilityemail">
@@ -56,17 +56,19 @@
     Website
     <input type="text" name="website">
   </label>
-  <br/>
 
-  <button>Signup</button>
+  <br/>
+  <button class="btn btn-primary">Signup</button>
 </form>
 
-<button>
-  <a href="/">Back to Menu</a>
-</button>
+<a href="/">
+  <button class="btn btn-primary">Back to Menu</button>
+</a>
 
-<br/>
-<p>Already registered?</p>
-<button>
-  <a href="/loginFacility">Login</a>
-</button>
+<hr>
+<div class="text-center">
+  <p>Already registered?</p>
+  <a href="/loginFacility">
+    <button class=" btn btn-primary btn-lg">Login</button>
+  </a>
+</div>

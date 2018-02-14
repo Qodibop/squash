@@ -14,10 +14,12 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const mongoose = require("mongoose");
+var cors = require("cors");
 
 mongoose.connect("mongodb://localhost/squashDB");
 
 const app = express();
+app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -70,7 +72,8 @@ passport.use(
         }
         bcrypt.compare(password, facility.password, (err, isTheSame) => {
           if (err) return done(err);
-          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
+          if (!isTheSame)
+            return done(null, false, { message: "Incorrect password" });
           done(null, facility);
         });
       });
@@ -94,7 +97,8 @@ passport.use(
         }
         bcrypt.compare(password, user.password, (err, isTheSame) => {
           if (err) return done(err);
-          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
+          if (!isTheSame)
+            return done(null, false, { message: "Incorrect password" });
           done(null, user);
         });
       });

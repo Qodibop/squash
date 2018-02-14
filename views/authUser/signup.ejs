@@ -1,33 +1,38 @@
-<form method="POST" action="/signupUser"  enctype='multipart/form-data'>
-  <label>
-    Username:
-    <input type="text" name="username">
-  </label>
-  <br>
-  <label>
-    Password:
-    <input type="password" name="password">
-  </label>
-  <br>
-  <label>
-  Photo de profil:
-  <input type="file" name="user-picture">
-</label>
-<br>
-  <label>
-  email:
-  <input type="text" name="email">
-</label>
-<br>
-<label>
-adresse:
-<input type="text" name="address">
-</label>
-  <button>Signup</button>
-</form>
+<section class="center-block">
+  <form method="POST" action="/signupUser" enctype='multipart/form-data'>
+    <label>
+      Username:
+      <input type="text" name="username">
+    </label>
+    <br>
+    <label>
+      Password:
+      <input type="password" name="password">
+    </label>
+    <br>
+    <label>
+      Profil Picture:
+      <input type="file" name="user-picture">
+    </label>
+    <br>
+    <label>
+      Email:
+      <input type="text" name="email">
+    </label>
+    <br>
+    <label>
+      Adresse:
+      <input type="text" name="address">
+    </label>
+    </br>
+    <button class="btn btn-primary">Signup</button>
+  </form>
+</section>
 
-<br>
-<p>Already registered?</p>
-<button>
-  <a href="/loginUser">Login</a>
-</button>
+<hr>
+<div class="text-center">
+  <p>Already registered?</p>
+  <a href="/loginUser">
+    <button class="btn btn-primary btn-lg">Login</button>
+  </a>
+</div>
