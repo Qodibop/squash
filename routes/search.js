@@ -33,7 +33,7 @@ router.post("/search", ensureLoggedIn(), (req, res, next) => {
   Search.find({}, (err, searches) => {
     for (let i = 0; i < searches.length; i++) {
       if (
-        localisation === searches[i].localisation &&
+        zipcode === searches[i].zipcode &&
         day === searches[i].day &&
         time === searches[i].time
       ) {

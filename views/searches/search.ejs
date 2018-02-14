@@ -4,16 +4,20 @@
   <div class="box">
     <img src='<%= match.userPic %>' width=40 />
     <%= match.username %>
-    <%= match.location %>
+    <%= match.zipcode %>
     <%= match.day %>
     <%= match.time %>
     <button><i class="fas fa-chevron-circle-right"></i> Challenge</button>
   </div>
 <% }) %>
+
   </br>
+  <form action="/search" method="post">
+  <label for="address">Adresse :
+    <input type="text" id="address" name="address">
+  </label>
+  <br>
 
-
-  <form action="/search" method="post" id="search-game-form">
     <label>Arrondissement :
       <select name="localisation" id="localisation">
         <option value="1er arrondissement">1er</option>
@@ -22,6 +26,7 @@
       </select>
     </label>
     <br>
+
     <label>Jour :
       <select name="day" id="day">
         <option value="vendredi">vendredi</option>
@@ -39,6 +44,11 @@
     </label>
     </br>
     <button class="btn btn-primary" id="searchGame">Search</button>
+
+    <br>
+  <label id="tohide" for="zipcode">Code postal :
+    <input type="text" id="zipcode" name="zipcode">
+  </label>
   </form>
 
   <hr>
@@ -50,3 +60,7 @@
       <button class="btn btn-primary" id="backToProfile">Back to profile</button>
     </a>
   </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>
