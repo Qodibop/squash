@@ -11,7 +11,8 @@ const userSchema = new Schema({
   email: String,
   picPath: String,
   picName: String,
-  address: String
+  address: String,
+  zipcode: String
 });
 
 module.exports = mongoose.model("User", userSchema);

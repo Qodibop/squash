@@ -21,9 +21,12 @@
 <br>
 <label>
 adresse:
-<input type="text" name="address">
+<input type="text" name="address" id="address">
 </label>
   <button>Signup</button>
+  <label id="tohide" for="zipcode">Code postal :
+    <input type="text" id="zipcode" name="zipcode">
+  </label>
 </form>
 
 <br>
@@ -31,3 +34,7 @@ adresse:
 <button>
   <a href="/loginUser">Login</a>
 </button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>

@@ -1,5 +1,10 @@
 <h1>Set up a game</h1>
 <form action="/search" method="post">
+  <label for="address">Adresse :
+    <input type="text" id="address" name="address">
+  </label>
+  <br>
+
   <label>Arrondissement :
     <select name="localisation">
       <option value="1er arrondissement">1er</option>
@@ -23,5 +28,18 @@
       <option value="20:00 - 22:00">20:00 - 22:00</option>
     </select>
   </label>
+
   <button>Search</button>
+  <br>
+  <label id="tohide" for="zipcode">Code postal :
+    <input type="text" id="zipcode" name="zipcode">
+  </label>
+
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>
+
+
+<!-- AIzaSyAC4uwxVFeRkZOIoo9dFguhnWPiJKgPOzQ -->

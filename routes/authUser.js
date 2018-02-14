@@ -18,6 +18,7 @@ router.post("/signupUser", ensureLoggedOut(), upload.single("user-picture"), (re
   const password = req.body.password;
   const address = req.body.address;
   const email = req.body.email;
+  const zipcode = req.body.zipcode;
 
   if (!password) {
     req.flash("error", "Password is required");
@@ -32,9 +33,10 @@ router.post("/signupUser", ensureLoggedOut(), upload.single("user-picture"), (re
         username,
         password: hash,
         email,
-        picPath: `/uploads/user-pictures/${req.file.filename}`,
-        picName: req.file.originalname,
-        address
+        picPath: req.file ? `/uploads/user-pictures/${req.file.filename}` : null,
+        picName: req.file ? req.file.originalname : null,
+        address,
+        zipcode
       });
 
       user.save(err => {

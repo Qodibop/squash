@@ -1,4 +1,4 @@
-<form method="POST" action="/signupFacility">
+<form method="POST" action="/signupFacility" enctype='multipart/form-data'>
   <label>
     Email address:
     <input type="text" name="facilityemail">
@@ -14,18 +14,24 @@
     <input type="text" name="name">
   </label>
   <br/>
+  
+  <label>
+  Photo:
+  <input type="file" name="facility-picture">
+</label>
+<br>
 
   <label>
     Address
-    <textarea type="text" name="address"></textarea>
+    <input type="text" name="address" id="address"></input>
   </label>
   <br/>
 
-  <label>
+  <!-- <label>
     Postal Code
     <input type="number" name="postalCode">
   </label>
-  <br/>
+  <br/> -->
 
   <label>
     Phone Number
@@ -59,6 +65,9 @@
   <br/>
 
   <button>Signup</button>
+  <label id="tohide" for="zipcode">Code postal :
+    <input type="text" id="zipcode" name="zipcode">
+  </label>
 </form>
 
 <button>
@@ -70,3 +79,8 @@
 <button>
   <a href="/loginFacility">Login</a>
 </button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>

@@ -9,10 +9,14 @@ router.get("/search", ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post("/search", ensureLoggedIn(), (req, res, next) => {
+  const address = req.body.address;
+  const zipcode = req.body.zipcode;
   const localisation = req.body.localisation;
   const day = req.body.day;
   const time = req.body.time;
   const search = new Search({
+    address,
+    zipcode,
     localisation,
     day,
     time,
