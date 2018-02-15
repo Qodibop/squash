@@ -1,95 +1,91 @@
 <h1>Researh a new game</h1>
 <% if (facilityResults.length === 0) { %>
-<div class="box">
-<%= messages[0] %>
-</div>
-<% } else if (searchResults.length === 0) { %>
-<div class="box">
-<img src='<%= facility.picPath%>' width=50 heigh=50 />
-<%= facility.name %>
-  <%= facility.address %>
-  <br>
-  <%= messages[1] %>
-</div>
-<% } else facilityResults.forEach((facility) => { %>
-<div class="box">
-  <img src='<%= facility.picPath%>' width=50 heigh=50 />
-  <%= facility.name %>
-    <%= facility.address %>
-</div>
-<% searchResults.forEach((match) => { %>
   <div class="box">
-    <img src='<%= match.userPic%>' width=50 heigh=50 />
-    <%= match.username %>
-      <%= match.zipcode %>
-        <%= match.day %>
-          <%= match.time %>
-            <button class="btn btn-primary">
-              <i class="fas fa-chevron-circle-right"></i> Challenge</button>
+    <%= messages[0] %>
   </div>
-
-  <% })}) %>
-
- 
-
-        </br>
-        <form action="/search" method="post">
-          <label for="address">
-            <h5>Address :</h5>
-            <input class="form-control-lg" type="text" id="address" name="address">
-          </label>
-
-          <br>
-          <label>
-            <h5>Day :</h5>
-            <select name="day" id="day">
-              <option value="Monday">Monday</option>
-              <option value="Tuesday" selected>Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday" selected>Friday</option>
-              <option value="Saturday">Saturday</option>
-              <option value="Sunday">Sunday</option>
-            </select>
-          </label>
-
-          <br>
-          <label>
-            <h5>Time :</h5>
-            <select name="time" id="time">
-              <option value="00:00 - 02:00">00:00 - 02:00</option>
-              <option value="02:00 - 04:00">02:00 - 04:00</option>
-              <option value="04:00 - 06:00">04:00 - 06:00</option>
-              <option value="06:00 - 08:00">06:00 - 08:00</option>
-              <option value="07:00 - 10:00">07:00 - 10:00</option>
-              <option value="10:00 - 12:00">10:00 - 12:00</option>
-              <option value="12:00 - 14:00">12:00 - 14:00</option>
-              <option value="14:00 - 16:00">14:00 - 16:00</option>
-              <option value="16:00 - 18:00">16:00 - 18:00</option>
-              <option value="18:00 - 20:00">18:00 - 20:00</option>
-              <option value="20:00 - 22:00">20:00 - 22:00</option>
-              <option value="22:00 - 24:00">22:00 - 24:00</option>
-            </select>
-          </label>
-          </br>
-          <button class="btn btn-primary" id="searchGame">Search</button>
-
-          <br>
-          <label id="tohide" for="zipcode">Code postal :
-            <input type="text" id="zipcode" name="zipcode">
-          </label>
-        </form>
-
-        <hr>
-
-        <div class="text-center">
-          <button class="btn btn-primary" id="saveSearch">Post New Game</button>
-
-          <a href="/profileUser">
-            <button class="btn btn-primary" id="backToProfile">Back to profile</button>
-          </a>
+    <% } else facilityResults.forEach((facility) => { %>
+      <div class="box">
+        <img src='<%= facility.picPath%>' width=50 heigh=50 />
+        <%= facility.name %>
+          <%= facility.address %>
+      </div>
+      <% if(searchResults.length===0){%>
+      <div class="box">
+      <%= messages[1] %>
+    </div>
+      <% } else searchResults.forEach((match) => {%>
+      <div class="box">
+          <img src='<%= match.userPic%>' width=50 heigh=50 />
+          <%= match.username %>
+            <%= match.zipcode %>
+              <%= match.day %>
+                <%= match.time %>
+                  <button class="btn btn-primary">
+                    <i class="fas fa-chevron-circle-right"></i> Challenge</button>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="javascripts/main.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>
+        <% })}) %>
+
+
+
+          </br>
+          <form action="/search" method="post">
+            <label for="address">
+              <h5>Address :</h5>
+              <input class="form-control-lg" type="text" id="address" name="address">
+            </label>
+
+            <br>
+            <label>
+              <h5>Day :</h5>
+              <select name="day" id="day">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday" selected>Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday" selected>Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </label>
+
+            <br>
+            <label>
+              <h5>Time :</h5>
+              <select name="time" id="time">
+                <option value="00:00 - 02:00">00:00 - 02:00</option>
+                <option value="02:00 - 04:00">02:00 - 04:00</option>
+                <option value="04:00 - 06:00">04:00 - 06:00</option>
+                <option value="06:00 - 08:00">06:00 - 08:00</option>
+                <option value="07:00 - 10:00">07:00 - 10:00</option>
+                <option value="10:00 - 12:00">10:00 - 12:00</option>
+                <option value="12:00 - 14:00">12:00 - 14:00</option>
+                <option value="14:00 - 16:00">14:00 - 16:00</option>
+                <option value="16:00 - 18:00">16:00 - 18:00</option>
+                <option value="18:00 - 20:00">18:00 - 20:00</option>
+                <option value="20:00 - 22:00">20:00 - 22:00</option>
+                <option value="22:00 - 24:00">22:00 - 24:00</option>
+              </select>
+            </label>
+            </br>
+            <button class="btn btn-primary" id="searchGame">Search</button>
+
+            <br>
+            <label id="tohide" for="zipcode">Code postal :
+              <input type="text" id="zipcode" name="zipcode">
+            </label>
+          </form>
+
+          <hr>
+
+          <div class="text-center">
+            <button class="btn btn-primary" id="saveSearch">Post New Game</button>
+
+            <a href="/profileUser">
+              <button class="btn btn-primary" id="backToProfile">Back to profile</button>
+            </a>
+          </div>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script type="text/javascript" src="javascripts/main.js"></script>
+          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>
