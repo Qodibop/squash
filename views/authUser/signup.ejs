@@ -1,35 +1,50 @@
-<h2>Signup to play</h2>
-
+<div class="text-center">
+<h3>Become a member of the Asphalt Club community!</h3>
+</div>
 
 <form method="POST" action="/signupUser"  enctype='multipart/form-data'>
-  <label>
-    Username:
-    <input type="text" name="username">
-  </label>
-  <br>
-  <label>
-    Password:
-    <input type="password" name="password">
-  </label>
-  <br>
-  <label>
-  Photo de profil:
-  <input type="file" name="user-picture">
-</label>
-<br>
-  <label>
-  email:
-  <input type="text" name="email">
-</label>
-<br>
-<label>
-adresse:
-<input type="text" name="address" id="address">
-</label>
-  <button>Signup</button>
-  <label id="tohide" for="zipcode">Code postal :
-    <input type="text" id="zipcode" name="zipcode">
-  </label>
+<fieldset>
+<div class="form-group">
+    <label for="exampleInputUsername">Username</label>
+    <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="Enter your username">
+  </div>
+
+<div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+</div>
+  
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+    <label for="exampleInputAddress">Address</label>
+    <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
+  </div>
+  
+    <div class="form-group">
+      <label for="profilePictureUser">Profile picture</label>
+      <input type="file" name="user-picture" class="form-control-file" id="profilePictureUser" aria-describedby="fileHelp">
+      <small id="fileHelp" class="form-text text-muted">Please select a profile picture, you can add it or modify it after signing up.</small>
+    </div>
+
+    <fieldset class="form-group">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="" checked="">
+          I agree with the terms and conditions of Asphalt Club.
+        </label>
+      </div>
+    </fieldset>
+
+    <button>Signup</button>
+    <label id="tohide" for="zipcode">Code postal :
+      <input type="text" id="zipcode" name="zipcode">
+    </label>
+  </fieldset>
 </form>
 
 <hr>
