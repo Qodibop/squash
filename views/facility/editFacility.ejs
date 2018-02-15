@@ -1,63 +1,94 @@
-<h1>Edit
-    <%= facility._id %>
-</h1>
+<div class="text-center">
+<h3> Join Asphalt Club awesome referenced facilities!</h3>
+</div>
 
-<form action="/facility/<%= facility._id %>" method="POST">
-    <label>
-        Name
-        <input type="text" name="name" value="<%= facility.name %>">
+<form method="POST" action="/signupFacility" enctype='multipart/form-data'>
+  <fieldset>   
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="facilityemail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+    <label for="exampleInputName">Name</label>
+    <input type="text" name="name" class="form-control" id="facilityName" placeholder="Enter name of the facility">
+  </div>
+
+  <div class="form-group">
+  <label for="exampleInputAddress">Address</label>
+  <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
+</div>
+
+  <div class="form-group">
+  <label for="exampleInputPhoneNumber">Phone Number</label>
+  <input type="text" name="phone" class="form-control" id="exampleInputPhoneNumber" placeholder="Enter phone number">
+</div>
+
+<div class="form-group">
+<label for="exampleInputWebsite">Website</label>
+<input type="text" name="website" class="form-control" id="exampleInputWebsite" placeholder="Enter website URL">
+</div>
+
+
+<div class="form-group">
+<label for="exampleInputFile">Profile Picture</label>
+<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="facility-picture">
+<small id="fileHelp" class="form-text text-muted">Please, select a profile picture.</small>
+</div>
+
+    <div class="form-group">
+      <label for="exampleSelect2">Facility Type</label>
+      <select type="text" name="facilityType" multiple="" class="form-control" id="exampleSelect2">
+        <option>Gym</option>
+        <option>Squash Club</option>
+        <option>Futsal</option>
+        <option>Boxing Club</option>
+        <option>Badminton Club</option>
+        <option>Tennis Club</option>
+        <option>Basketball Club</option>
+        <option>Tennis Club</option>
+        <option>Volleyball Club</option>
+      </select>
+
+      <div class="form-group">
+      <label for="exampleSelect2">Opening Days</label>
+      <select multiple="" class="form-control" id="OpeningDays" type="text" name="openingDays">
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">Description</label>
+      <textarea type="text" name="description" class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+  
+ 
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <label id="tohide" for="zipcode">Code postal :
+      <input type="text" id="zipcode" name="zipcode">
     </label>
-    <br/>
-
-    <label>
-        Email
-        <input type="text" name="email" value="<%= facility.email %>">
-    </label>
-    <br/>
-
-    <label>
-        Address
-        <textarea type="text" name="address"><%= facility.address %></textarea>
-    </label>
-    <br/>
-
-    <label>
-        Postal Code
-        <input type="number" name="postalCode" value="<%= facility.postalCode %>">
-    </label>
-    <br/>
-
-    <label>
-        Phone Number
-        <input type="number" name="phone" value="<%= facility.phone %>">
-    </label>
-    <br/>
-
-
-    <label>
-        Facility Type
-        <input type="text" name="facilityType" value="<%= facility.facilityType %>">
-    </label>
-    <br/>
-
-    <label>
-        Description
-        <textarea type="text" name="description"><%= facility.description %></textarea>
-    </label>
-    <br/>
-
-    <label>
-        Openin Days
-        <textarea type="text" name="openingDays"><%= facility.openingDays %></textarea>
-    </label>
-    <br/>
-
-    <label>
-        Website
-        <input type="text" name="website" value="<%= facility.website %>">
-    </label>
-    <br/>
-
-
-    <button type="submit" class="btn btn-primary">Save</button>
+  </fieldset>
 </form>
+
+<hr>
+<div class="text-center">
+<h4>Already registered?</h4>
+<a href="/loginFacility"><button class="btn btn-primary">Login</button></a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>
