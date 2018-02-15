@@ -1,20 +1,25 @@
-<h1>Researh a new game</h1>
+<div class="text-center">
+  <h2>Researh a new game</h2>
+</div>
+
+<hr>
+
 <% if (facilityResults.length === 0) { %>
   <div class="box">
     <%= messages[0] %>
   </div>
-    <% } else facilityResults.forEach((facility) => { %>
-      <div class="box">
-        <img src='<%= facility.picPath%>' width=50 heigh=50 />
-        <%= facility.name %>
-          <%= facility.address %>
-      </div>
-      <% if(searchResults.length===0){%>
-      <div class="box">
-      <%= messages[1] %>
+  <% } else facilityResults.forEach((facility) => { %>
+    <div class="box">
+      <img src='<%= facility.picPath%>' width=50 heigh=50 />
+      <%= facility.name %>
+        <%= facility.address %>
     </div>
-      <% } else searchResults.forEach((match) => {%>
+    <% if(searchResults.length===0){%>
       <div class="box">
+        <%= messages[1] %>
+      </div>
+      <% } else searchResults.forEach((match) => {%>
+        <div class="box">
           <img src='<%= match.userPic%>' width=50 heigh=50 />
           <%= match.username %>
             <%= match.zipcode %>
@@ -25,62 +30,57 @@
         </div>
 
         <% })}) %>
-
-
-
-          </br>
-          <form action="/search" method="post">
-            <label for="address">
-              <h5>Address :</h5>
-              <input class="form-control-lg" type="text" id="address" name="address">
-            </label>
-
-            <br>
-            <label>
-              <h5>Day :</h5>
-              <select name="day" id="day">
-                <option value="Monday">Monday</option>
-                <option value="Tuesday" selected>Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday" selected>Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-              </select>
-            </label>
-
-            <br>
-            <label>
-              <h5>Time :</h5>
-              <select name="time" id="time">
-                <option value="00:00 - 02:00">00:00 - 02:00</option>
-                <option value="02:00 - 04:00">02:00 - 04:00</option>
-                <option value="04:00 - 06:00">04:00 - 06:00</option>
-                <option value="06:00 - 08:00">06:00 - 08:00</option>
-                <option value="07:00 - 10:00">07:00 - 10:00</option>
-                <option value="10:00 - 12:00">10:00 - 12:00</option>
-                <option value="12:00 - 14:00">12:00 - 14:00</option>
-                <option value="14:00 - 16:00">14:00 - 16:00</option>
-                <option value="16:00 - 18:00">16:00 - 18:00</option>
-                <option value="18:00 - 20:00">18:00 - 20:00</option>
-                <option value="20:00 - 22:00">20:00 - 22:00</option>
-                <option value="22:00 - 24:00">22:00 - 24:00</option>
-              </select>
-            </label>
-            </br>
-            <button class="btn btn-primary" id="searchGame">Search</button>
-
-            <br>
-            <label id="tohide" for="zipcode">Code postal :
-              <input type="text" id="zipcode" name="zipcode">
-            </label>
-          </form>
-
           <hr>
 
+          <form method="POST" action="/search">
+            <fieldset>
+
+              <div class="form-group">
+                <label for="exampleInputAddress">Address</label>
+                <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleSelect2">Day</label>
+                <select class="form-control" name="day" id="day" type="text">
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday" selected>Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday" selected>Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleSelect2">Time</label>
+                <select class="form-control" name="time" id="time" type="text">
+                  <option value="00:00 - 02:00">00:00 - 02:00</option>
+                  <option value="02:00 - 04:00">02:00 - 04:00</option>
+                  <option value="04:00 - 06:00">04:00 - 06:00</option>
+                  <option value="06:00 - 08:00">06:00 - 08:00</option>
+                  <option value="07:00 - 10:00">07:00 - 10:00</option>
+                  <option value="10:00 - 12:00">10:00 - 12:00</option>
+                  <option value="12:00 - 14:00">12:00 - 14:00</option>
+                  <option value="14:00 - 16:00">14:00 - 16:00</option>
+                  <option value="16:00 - 18:00">16:00 - 18:00</option>
+                  <option value="18:00 - 20:00">18:00 - 20:00</option>
+                  <option value="20:00 - 22:00">20:00 - 22:00</option>
+                  <option value="22:00 - 24:00">22:00 - 24:00</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary" id="searchGame">Search</button>
+
+              <br>
+              <label id="tohide" for="zipcode">Code postal :
+                <input type="text" id="zipcode" name="zipcode">
+              </label>
+            </fieldset>
+          </form>
           <div class="text-center">
             <button class="btn btn-primary" id="saveSearch">Post New Game</button>
-
             <a href="/profileUser">
               <button class="btn btn-primary" id="backToProfile">Back to profile</button>
             </a>
