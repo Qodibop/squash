@@ -2,44 +2,49 @@
 
 <% matching.forEach((match) => { %>
   <div class="box">
-    <img src='<%= match.userPic %>' width=40 />
+    <img src='<%= match.userPic%>' width=50 heigh=50 />
     <%= match.username %>
     <%= match.zipcode %>
     <%= match.day %>
     <%= match.time %>
-    <button><i class="fas fa-chevron-circle-right"></i> Challenge</button>
+    <button class="btn btn-primary"><i class="fas fa-chevron-circle-right"></i> Challenge</button>
   </div>
 <% }) %>
 
   </br>
   <form action="/search" method="post">
-  <label for="address">Adresse :
-    <input type="text" id="address" name="address">
+  <label for="address"><h5>Address :</h5>
+    <input class="form-control-lg" type="text" id="address" name="address">
   </label>
+  
   <br>
-
-    <label>Arrondissement :
-      <select name="localisation" id="localisation">
-        <option value="1er arrondissement">1er</option>
-        <option value="2ème arrondissement" selected>2ème</option>
-        <option value="3ème arrondissement">3ème</option>
-      </select>
-    </label>
-    <br>
-
-    <label>Jour :
+    <label><h5>Day :</h5>
       <select name="day" id="day">
-        <option value="vendredi">vendredi</option>
-        <option value="samedi" selected>samedi</option>
-        <option value="dimanche">dimanche</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday" selected>Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday" selected>Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
       </select>
     </label>
+    
     <br>
-    <label>Créneau :
+    <label><h5>Time :</h5>
       <select name="time" id="time">
-        <option value="07:00 - 09:00">07:00 - 09:00</option>
-        <option value="18:00 - 20:00" selected>18:00 - 20:00</option>
-        <option value="20:00 - 22:00">20:00 - 22:00</option>
+       <option value="00:00 - 02:00">00:00 - 02:00</option>
+       <option value="02:00 - 04:00">02:00 - 04:00</option>
+       <option value="04:00 - 06:00">04:00 - 06:00</option>
+       <option value="06:00 - 08:00">06:00 - 08:00</option>
+       <option value="07:00 - 10:00">07:00 - 10:00</option>
+       <option value="10:00 - 12:00">10:00 - 12:00</option>
+       <option value="12:00 - 14:00">12:00 - 14:00</option>
+       <option value="14:00 - 16:00">14:00 - 16:00</option>
+       <option value="16:00 - 18:00">16:00 - 18:00</option>
+       <option value="18:00 - 20:00">18:00 - 20:00</option>
+       <option value="20:00 - 22:00">20:00 - 22:00</option>
+       <option value="22:00 - 24:00">22:00 - 24:00</option>
       </select>
     </label>
     </br>

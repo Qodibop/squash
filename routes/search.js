@@ -46,7 +46,14 @@ router.post("/search", ensureLoggedIn(), (req, res, next) => {
     }
     if (matchingSearch.length === 0) {
       console.log("No matching research");
-      res.render("searches/search", { matching: "No matching :(" });
+      res.render("searches/search", {
+        matching: [
+          {
+            username: "No matching, your request has been saved!",
+            userPic: "/images/noMatches.jpg"
+          }
+        ]
+      });
     } else {
       res.render("searches/search", { matching: matchingSearch });
     }
