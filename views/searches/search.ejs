@@ -32,14 +32,13 @@
             <button class="btn btn-primary">
               <i class="fas fa-chevron-circle-right"></i> Challenge</button>
   </div>
-
   <% })}) %>
 
  
 
   <hr>
 
-    <form method="POST" action="/search" enctype='multipart/form-data'>
+    <form method="POST" action="/search">
       <fieldset>   
           
         <div class="form-group">
@@ -61,7 +60,8 @@
           </div>
 
         <div class="form-group">
-         <label for="exampleSelect2">Opening Days</label>
+         <label>
+         <h4>Time</h4>
           <select class="form-control" name="time" id="time" type="text">
               <option value="00:00 - 02:00">00:00 - 02:00</option>
               <option value="02:00 - 04:00">02:00 - 04:00</option>
@@ -76,6 +76,7 @@
               <option value="20:00 - 22:00">20:00 - 22:00</option>
               <option value="22:00 - 24:00">22:00 - 24:00</option>
           </select>
+          </label>
           </div>
 
           <button class="btn btn-primary" id="searchGame">Search</button>
