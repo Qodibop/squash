@@ -72,8 +72,7 @@ passport.use(
         }
         bcrypt.compare(password, facility.password, (err, isTheSame) => {
           if (err) return done(err);
-          if (!isTheSame)
-            return done(null, false, { message: "Incorrect password" });
+          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
           done(null, facility);
         });
       });
@@ -97,8 +96,7 @@ passport.use(
         }
         bcrypt.compare(password, user.password, (err, isTheSame) => {
           if (err) return done(err);
-          if (!isTheSame)
-            return done(null, false, { message: "Incorrect password" });
+          if (!isTheSame) return done(null, false, { message: "Incorrect password" });
           done(null, user);
         });
       });
@@ -123,6 +121,7 @@ app.use("/", require("./routes/authFacility"));
 app.use("/", require("./routes/profileFacility"));
 app.use("/", require("./routes/profileUser"));
 app.use("/", require("./routes/search"));
+app.use("/", require("./routes/facilitySearch"));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

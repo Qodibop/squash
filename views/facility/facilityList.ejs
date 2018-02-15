@@ -1,0 +1,8 @@
+<h1>Squash facilities in <%= facility.zipcode %> area </h1>
+
+<% } facilityResults.forEach((facility) => { %>
+  <div class="box">
+    <img src='<%= facility.picPath%>' width=50 heigh=50 />
+    <%= facility.name %>
+      <%= facility.address %>
+  </div>
