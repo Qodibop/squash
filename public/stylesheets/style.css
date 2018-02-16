@@ -10,3 +10,8 @@ a {
 #asphaltLogo {
   height: 4.5rem;
 }
+
+h5 {
+  font-style: italic;
+  color: rgb(86, 23, 10);
+}
