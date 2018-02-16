@@ -23,6 +23,9 @@ router.post(
     const address = req.body.address;
     const email = req.body.email;
     const zipcode = req.body.zipcode;
+    const modo = req.body.modo;
+    const info = req.body.info;
+    const ranking = req.body.ranking;
 
     if (!password) {
       req.flash("error", "Password is required");
@@ -42,7 +45,10 @@ router.post(
             : null,
           picName: req.file ? req.file.originalname : null,
           address,
-          zipcode
+          zipcode,
+          modo,
+          info,
+          ranking
         });
 
         user.save(err => {

@@ -10,10 +10,10 @@
 <div class="collapse navbar-collapse" id="navbarColor02">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#">Edit Profile</a>
+      <a class="nav-link" href="/editUserProfile">Edit Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/logout">About</a>
+      <a class="nav-link" href="https://qodibop.github.io/Zloutch/">Zloutch</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/logout">Logout</a>
@@ -29,16 +29,60 @@
 
 <section id="sectionUserProfile" class="p-3 m-3">
 
-<h1>
+<div class="text-center">
+<h2>
     <%= user.username %>
-</h1>
-<img src="<%= user.picPath %>">
-<p>
-    <%= user.address %>
+</h2>
+<img src="<%= user.picPath %>" width="100" height="100">
+</div>
+<hr class="mx-5 px-5">
+
+
+<div id="infoUser" class="subSectionUser">
+
+<h5 class="infoUser infoUserTitle">Info</h5>
+<p class="infoUser">
+<%= user.info %>
 </p>
 
+<h5 class="infoUser infoUserTitle">Modo</h5>
+<p class="infoUser">
+<%= user.modo %>
+</p>
+
+<h5 class="infoUser infoUserTitle">Ranking</h5>
+<p></p>
+
+<h5 class="infoUser infoUserTitle">District</h5>
+<p class="infoUser">
+    <%= user.zipcode %>
+</p>
+
+</div> 
+
+<div class="text-center subSectionUser">
+<h2>
+    - Your matches -
+</h2>
+</div>
+
+<hr class="mx-5 px-5">
+
 </br>
-<div class="text-center">
+<hr class="mx-5 px-5">
+
+<div class="text-center subSectionUser">
+<h2>
+    - Pending Challenges-
+</h2>
+</div>
+
+<hr class="mx-5 px-5">
+
+</br>
+<hr class="mx-5 px-5">
+
+<div class="text-center subSectionUser">
     <a href="/search">
         <button class="btn btn-primary">Look for a game</button>
     </a>
@@ -51,4 +95,5 @@
         <button class="btn btn-primary">Challenge a friend</button>
     </a>
 </div>
+
 </section>

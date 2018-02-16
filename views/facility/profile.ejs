@@ -10,7 +10,7 @@
 <div class="collapse navbar-collapse" id="navbarColor02">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#">Edit Profile</a>
+      <a class="nav-link" href="/editFacility">Edit Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/goodPractices">Good Practices</a>
@@ -29,64 +29,65 @@
 
 <section id="sectionProfileFacility" class="p-3 m-3">
 
-<h1>
-    Welcome to your homepage
-</h1>
 
-<h2>
+<h2 class="text-center">
     <%= facility.name %>
 </h2>
-<br/>
+</br>
 
-<img src="<%= user.picPath %>">
-<br/>
+<div class="text-center">
+<img src="<%= user.picPath %>" height="100" width="100">
+</div>
+</br>
+<hr>
+
+<section id="sectionInfoFacility"class="">
+<h2>
+    <%= facility.description %>
+</h2>
+
+<h2>
+    <%= facility.facilityType %>
+</h2>
+</br>
+
+<h2>
+    <%= facility.phone %>
+</h2>
+</br>
 
 <h2>
     <%= facility.email %>
 </h2>
-<br/>
+</br>
 
 <h2>
     <%= facility.address %>
 
 </h2>
-<br/>
+</br>
 
 <h2>
     <%= facility.postalCode %>
 </h2>
-<br/>
+</br>
 
-<h2>
-    <%= facility.phone %>
-</h2>
-<br/>
-
-
-<h2>
-    <%= facility.facilityType %>
-</h2>
-<br/>
-
-<h2>
-    <%= facility.description %>
-
-</h2>
-<br/>
 
 <h2>
     <%= facility.openingDays %>
 
 </h2>
-<br/>
+</br>
 
 <h2>
     <%= facility.website %>
 </h2>
 
-<br/>
+</section>
+
+<hr>
 <div class="text-center">
-    <a href="/edit">
+    <a href="/editFacility">
         <button class="btn btn-primary">Edit Profile</button>
     </a>
     <a href="/goodPractices">

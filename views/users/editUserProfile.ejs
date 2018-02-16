@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2 m-0">
-<a class="navbar-brand nav-link pl-2" href="/">
+<a class="navbar-brand nav-link pl-2" href="/logout">
   <img src="/images/ASPHALT_BLANC-02.png" alt="logo" id="asphaltLogo"/>
 </a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
@@ -10,13 +10,13 @@
 <div class="collapse navbar-collapse" id="navbarColor02">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#">Features</a>
+      <a class="nav-link" href="/profileUser">Back to Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/">About</a>
+      <a class="nav-link" href="https://qodibop.github.io/Zloutch/">Zloutch</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/loginUser">Login</a>
+      <a class="nav-link" href="/logout">Logout</a>
     </li>
   </ul>
   <form class="form-inline my-2 my-lg-0">
@@ -27,13 +27,12 @@
 </nav>
 
 
-<section id="sectionSignupUser" class="p-3 m-3">
+<section id="sectionEditUserProfile" class="p-3 m-3">
 
-<div class="text-center">
-<h3>Become a member of the Asphalt Club community!</h3>
-</div>
+<h2 class="text-center">Edit your Profile</h2>
+<hr class="mx-5 px-5">
 
-<form method="POST" action="/signupUser"  enctype='multipart/form-data'>
+<form method="POST" action="/editUserProfile"  enctype='multipart/form-data'>
 <fieldset>
 <div class="form-group">
     <label for="exampleInputUsername">Username</label>
@@ -61,7 +60,6 @@
       <input type="file" name="user-picture" class="form-control-file" id="profilePictureUser" aria-describedby="fileHelp">
       <small id="fileHelp" class="form-text text-muted">Please select a profile picture, you can add it or modify it after signing up.</small>
     </div>
-
 
     <fieldset class="form-group">
     <label for="exampleSelect2">Ranking</label>
@@ -104,8 +102,7 @@
       <label for="exampleTextarea">Bio</label>
       <textarea type="text" name="info" class="form-control" id="bioArea" rows="3"></textarea>
     </div>
-  
-
+    
     <fieldset class="form-group">
       <div class="form-check">
         <label class="form-check-label">
@@ -115,21 +112,14 @@
       </div>
     </fieldset>
 
-    <button type="submit" class="btn btn-primary">Signup</button>
+    <button type="submit" class="btn btn-primary">Save changes</button>
     <label id="tohide" for="zipcode">Code postal :
       <input type="text" id="zipcode" name="zipcode">
     </label>
   </fieldset>
 </form>
 
-<hr>
-<div class="text-center">
-<h4>Already registered?</h4>
-<a href="/loginUser"><button class="btn btn-primary btn-lg">Login</button></a>
-</div>
-
 </section>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>

@@ -33,26 +33,32 @@
 <h3> Edit your profile</h3>
 </div>
 
-<form method="POST" action="/signupFacility" enctype='multipart/form-data'>
+<form method="POST" action="/editFacility" enctype='multipart/form-data'>
   <fieldset>   
+
+  <div class="form-group">
+    <label for="exampleInputName">Id</label>
+    <input type="ObjectId" name="id" class="form-control" id="facilityId" value="<%= facility._id%>">
+  </div>
+
     <div class="form-group">
     <label for="exampleInputName">Name</label>
-    <input type="text" name="name" class="form-control" id="facilityName" placeholder="Enter name of the facility">
+    <input type="text" name="name" class="form-control" id="facilityName" value="<%= facility.name%>">
   </div>
 
   <div class="form-group">
   <label for="exampleInputAddress">Address</label>
-  <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
+  <input type="text" name="address" id="address" class="form-control" value="<%= facility.address%>">
 </div>
 
   <div class="form-group">
   <label for="exampleInputPhoneNumber">Phone Number</label>
-  <input type="text" name="phone" class="form-control" id="exampleInputPhoneNumber" placeholder="Enter phone number">
+  <input type="text" name="phone" class="form-control" id="exampleInputPhoneNumber" value="<%= facility.number%> ">
 </div>
 
 <div class="form-group">
 <label for="exampleInputWebsite">Website</label>
-<input type="text" name="website" class="form-control" id="exampleInputWebsite" placeholder="Enter website URL">
+<input type="text" name="website" class="form-control" id="exampleInputWebsite" value="<%= facility.website%>">
 </div>
 
 
@@ -62,19 +68,50 @@
 <small id="fileHelp" class="form-text text-muted">Please, select a profile picture.</small>
 </div>
 
-    <div class="form-group">
-      <label for="exampleSelect2">Facility Type</label>
-      <select type="text" name="facilityType" multiple="" class="form-control" id="exampleSelect2">
-        <option>Gym</option>
-        <option>Squash Club</option>
-        <option>Futsal</option>
-        <option>Boxing Club</option>
-        <option>Badminton Club</option>
-        <option>Tennis Club</option>
-        <option>Basketball Club</option>
-        <option>Tennis Club</option>
-        <option>Volleyball Club</option>
-      </select>
+<fieldset class="form-group">
+<label for="exampleSelect2">Type of Club</label>
+<div class="form-check">
+<ul>
+<li>
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optionsRadios" id="Squash" value="Squash" checked="">
+    Squash
+  </label>
+  </li>
+  <li>
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optionsRadios" id="Zloutch" value="Zloutch" checked="">
+    Zloutch
+  </label>
+  </li>
+  <li>
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optionsRadios" id="Futsal" value="Futsal" checked="">
+    Futsal Urban
+  </label>
+  </li>
+  <li>
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optionsRadios" id="Boxing" value="Boxing" checked="">
+    Boxing
+  </label>
+  </li>
+  <li>
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optionsRadios" id="Badminton" value="Badminton" checked="">
+    Badminton
+  </label>
+  </li>
+  <li>
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optionsRadios" id="otherClubType" value="otherClubType" checked="">
+    <input type="text" name="otherType" id="otherType" class="form-control-sm" placeholder="Other, please specify">
+  </label>
+  </li>
+
+  </ul>
+</div>
+</fieldset>
 
       <div class="form-group">
       <label for="exampleSelect2">Opening Days</label>
@@ -91,7 +128,7 @@
     </div>
     <div class="form-group">
       <label for="exampleTextarea">Description</label>
-      <textarea type="text" name="description" class="form-control" id="exampleTextarea" rows="3"></textarea>
+      <textarea type="text" name="description" class="form-control" id="exampleTextarea" rows="3" value="<%=facility.description%>"></textarea>
     </div>
   
  
