@@ -1,3 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2 m-0">
+<a class="navbar-brand nav-link pl-2" href="/">
+  <img src="/images/ASPHALT_BLANC-02.png" alt="logo" id="asphaltLogo"/>
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+  aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarColor02">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Features</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Enter a zipcode" name:"zipcodeNavBar">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
+
+<section id="sectionSearchUser" class="p-3 m-3">
+
 <div class="text-center">
   <h2>Researh a new game</h2>
 </div>
@@ -8,20 +38,6 @@
   <div class="box">
     <%= messages[0] %>
   </div>
-<<<<<<< HEAD
-  <% })}) %>
-
- 
-
-  <hr>
-
-    <form method="POST" action="/search">
-      <fieldset>   
-          
-        <div class="form-group">
-          <label for="exampleInputAddress">Address</label>
-          <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
-=======
   <% } else facilityResults.forEach((facility) => { %>
     <div class="box">
       <img src='<%= facility.picPath%>' width=50 heigh=50 />
@@ -41,36 +57,13 @@
                 <%= match.time %>
                   <button class="btn btn-primary">
                     <i class="fas fa-chevron-circle-right"></i> Challenge</button>
->>>>>>> 401db23e0786896df6034ac4494fdc79c209a601
         </div>
 
         <% })}) %>
           <hr>
 
-<<<<<<< HEAD
-        <div class="form-group">
-         <label>
-         <h4>Time</h4>
-          <select class="form-control" name="time" id="time" type="text">
-              <option value="00:00 - 02:00">00:00 - 02:00</option>
-              <option value="02:00 - 04:00">02:00 - 04:00</option>
-              <option value="04:00 - 06:00">04:00 - 06:00</option>
-              <option value="06:00 - 08:00">06:00 - 08:00</option>
-              <option value="07:00 - 10:00">07:00 - 10:00</option>
-              <option value="10:00 - 12:00">10:00 - 12:00</option>
-              <option value="12:00 - 14:00">12:00 - 14:00</option>
-              <option value="14:00 - 16:00">14:00 - 16:00</option>
-              <option value="16:00 - 18:00">16:00 - 18:00</option>
-              <option value="18:00 - 20:00">18:00 - 20:00</option>
-              <option value="20:00 - 22:00">20:00 - 22:00</option>
-              <option value="22:00 - 24:00">22:00 - 24:00</option>
-          </select>
-          </label>
-          </div>
-=======
           <form method="POST" action="/search">
             <fieldset>
->>>>>>> 401db23e0786896df6034ac4494fdc79c209a601
 
               <div class="form-group">
                 <label for="exampleInputAddress">Address</label>
@@ -122,6 +115,8 @@
               <button class="btn btn-primary" id="backToProfile">Back to profile</button>
             </a>
           </div>
+
+          </section>
 
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
           <script type="text/javascript" src="javascripts/main.js"></script>
