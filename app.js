@@ -16,8 +16,10 @@ const flash = require("connect-flash");
 const mongoose = require("mongoose");
 var cors = require("cors");
 
+require("dotenv").config();
 // mongoose.connect("mongodb://localhost/squashDB");
-mongoose.connect("mongodb://heroku_ncpdvsqm:tg0707k26bvvtb04jptqi26ste@ds239368.mlab.com:39368/heroku_ncpdvsqm");
+// mongoose.connect("mongodb://heroku_ncpdvsqm:tg0707k26bvvtb04jptqi26ste@ds239368.mlab.com:39368/heroku_ncpdvsqm");
+mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 app.use(cors());
