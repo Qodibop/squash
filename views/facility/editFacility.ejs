@@ -1,20 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2 m-0">
+<a class="navbar-brand nav-link pl-2" href="/logout">
+  <img src="/images/ASPHALT_BLANC-02.png" alt="logo" id="asphaltLogo"/>
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+  aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarColor02">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/profileFacility">Back to Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/goodPractices">Good Practices</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Enter a zipcode" name:"zipcodeNavBar">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
+
+
+<section id="sectionEditProfileFacility" class="p-3 m-3">
+
 <div class="text-center">
-<h3> Join Asphalt Club awesome referenced facilities!</h3>
+<h3> Edit your profile</h3>
 </div>
 
 <form method="POST" action="/signupFacility" enctype='multipart/form-data'>
   <fieldset>   
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" name="facilityemail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-
     <div class="form-group">
     <label for="exampleInputName">Name</label>
     <input type="text" name="name" class="form-control" id="facilityName" placeholder="Enter name of the facility">
@@ -76,18 +96,14 @@
   
  
    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save changes</button>
     <label id="tohide" for="zipcode">Code postal :
       <input type="text" id="zipcode" name="zipcode">
     </label>
   </fieldset>
 </form>
 
-<hr>
-<div class="text-center">
-<h4>Already registered?</h4>
-<a href="/loginFacility"><button class="btn btn-primary">Login</button></a>
-</div>
+</section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
