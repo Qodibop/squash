@@ -16,7 +16,8 @@ const flash = require("connect-flash");
 const mongoose = require("mongoose");
 var cors = require("cors");
 
-mongoose.connect("mongodb://localhost/squashDB");
+// mongoose.connect("mongodb://localhost/squashDB");
+mongoose.connect("mongodb://heroku_ncpdvsqm:tg0707k26bvvtb04jptqi26ste@ds239368.mlab.com:39368/heroku_ncpdvsqm");
 
 const app = express();
 app.use(cors());
