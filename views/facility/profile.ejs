@@ -42,46 +42,48 @@
 <hr>
 
 <section id="sectionInfoFacility"class="">
-<h2>
+
+<div id="descriFacility">
+<h5>
     <%= facility.description %>
-</h2>
+</h5>
+</div>
 
-<h2>
+<div id="subdescriFacility">
+<h5>
+<h3>
     <%= facility.facilityType %>
-</h2>
-</br>
+</h3>
 
-<h2>
-    <%= facility.phone %>
-</h2>
-</br>
 
-<h2>
-    <%= facility.email %>
-</h2>
-</br>
+<h6>
+    Phone Number: <%= facility.phone %>
+</h6>
 
-<h2>
+
+<h6>
+   <a href="<%= facility.website %>"><%= facility.website %></a>
+</h6>
+
+
+<h6>
     <%= facility.address %>
 
-</h2>
-</br>
-
-<h2>
-    <%= facility.postalCode %>
-</h2>
-</br>
+</h6>
 
 
-<h2>
+<h6>
+    <%= facility.zipcode %>
+</h6>
+
+</div>
+
+<div id="openingInfo">
+<h6>
     <%= facility.openingDays %>
 
-</h2>
-</br>
-
-<h2>
-    <%= facility.website %>
-</h2>
+</h6>
+</div>
 
 </section>
 

@@ -1,136 +1,114 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2 m-0">
-<a class="navbar-brand nav-link pl-2" href="/">
-  <img src="/images/ASPHALT_BLANC-02.png" alt="logo" id="asphaltLogo"/>
-</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-  aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2 m-0">
+  <a class="navbar-brand nav-link pl-2" href="/">
+    <img src="/images/ASPHALT_BLANC-02.png" alt="logo" id="asphaltLogo"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<div class="collapse navbar-collapse" id="navbarColor02">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Features</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/">About</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/loginUser">Login</a>
-    </li>
-  </ul>
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" placeholder="Enter a zipcode" name:"zipcodeNavBar">
-    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</div>
-</nav>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/loginUser">Login</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Enter a zipcode" name:"zipcodeNavBar">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+  </nav>
 
 
-<section id="sectionSignupUser" class="p-3 m-3">
+  <section id="sectionSignupUser" class="p-3 m-3">
 
-<div class="text-center">
-<h3>Become a member of the Asphalt Club community!</h3>
-</div>
-
-<form method="POST" action="/signupUser"  enctype='multipart/form-data'>
-<fieldset>
-<div class="form-group">
-    <label for="exampleInputUsername">Username</label>
-    <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="Enter your username">
+  <div class="text-center">
+  <h3>Become a member of the Asphalt Club community!</h3>
   </div>
 
-<div class="form-group">
-  <label for="exampleInputPassword1">Password</label>
-  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-</div>
-  
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <form method="POST" action="/signupUser"  enctype='multipart/form-data'>
+  <fieldset>
+  <div class="form-group">
+      <label for="exampleInputUsername">Username</label>
+      <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="Enter your username">
     </div>
-
-    <div class="form-group">
-    <label for="exampleInputAddress">Address</label>
-    <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
-  </div>
-  
-    <div class="form-group">
-      <label for="profilePictureUser">Profile picture</label>
-      <input type="file" name="user-picture" class="form-control-file" id="profilePictureUser" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">Please select a profile picture, you can add it or modify it after signing up.</small>
-    </div>
-
-
-    <fieldset class="form-group">
-    <label for="exampleSelect2">Ranking</label>
-    <div class="form-check">
-    <ul>
-    <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="shitty" value="1" checked="">
-        Shitty
-      </label>
-      </li>
-      <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="midShitty" value="2" checked="">
-        Mid-Shitty
-      </label>
-      </li>
-      <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="good" value="3" checked="">
-        Good
-      </label>
-      </li>
-      <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="god" value="4" checked="">
-        I am a God
-      </label>
-      </li>
-      </ul>
-    </div>
-  </fieldset>
 
   <div class="form-group">
-      <label for="exampleTextarea">Modo</label>
-      <textarea type="text" name="modo" class="form-control" id="modoArea" rows="1"></textarea>
-    </div>
-  
-    <div class="form-group">
-      <label for="exampleTextarea">Bio</label>
-      <textarea type="text" name="info" class="form-control" id="bioArea" rows="3"></textarea>
-    </div>
-  
-
-    <fieldset class="form-group">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" value="" checked="">
-          I agree with the terms and conditions of Asphalt Club.
-        </label>
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+    
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
+
+      <div class="form-group">
+      <label for="exampleInputAddress">Address</label>
+      <input type="text" name="address" id="address" class="form-control" placeholder="Enter address">
+    </div>
+    
+      <div class="form-group">
+        <label for="profilePictureUser">Profile picture</label>
+        <input type="file" name="user-picture" class="form-control-file" id="profilePictureUser" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted">Please select a profile picture, you can add it or modify it after signing up.</small>
+      </div>
+
+    <div class="form-group">
+      <label>Ranking</label>
+      <select type="text" name="ranking" class="form-control" id="sectionRanking">
+      <option value="Shitty">Shitty</option>
+      <option value="Crapy">Crapy</option>
+      <option value="I am Bon, super Bon">I am Bon, super Bon</option>
+      <option value="Spaaaaartaaaaa!!">Spaaaaartaaaaa!!</option>
+      <option value="I am a God">I am a God!</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleTextarea">Modo</label>
+        <textarea type="text" name="modo" class="form-control" id="modoArea" rows="1"></textarea>
+      </div>
+    
+      <div class="form-group">
+        <label for="exampleTextarea">Bio</label>
+        <textarea type="text" name="info" class="form-control" id="bioArea" rows="3"></textarea>
+      </div>
+    
+
+      <fieldset class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" checked="">
+            I agree with the terms and conditions of Asphalt Club.
+          </label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary">Signup</button>
+      <label id="tohide" for="zipcode">Code postal :
+        <input type="text" id="zipcode" name="zipcode">
+      </label>
     </fieldset>
+  </form>
 
-    <button type="submit" class="btn btn-primary">Signup</button>
-    <label id="tohide" for="zipcode">Code postal :
-      <input type="text" id="zipcode" name="zipcode">
-    </label>
-  </fieldset>
-</form>
+  <hr>
+  <div class="text-center">
+  <h4>Already registered?</h4>
+  <a href="/loginUser"><button class="btn btn-primary btn-lg">Login</button></a>
+  </div>
 
-<hr>
-<div class="text-center">
-<h4>Already registered?</h4>
-<a href="/loginUser"><button class="btn btn-primary btn-lg">Login</button></a>
-</div>
-
-</section>
+  </section>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/main.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/main.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUfPqsVciBh7e45HfrpxxhWRpWkuILS1E&libraries=places&callback=init"></script>

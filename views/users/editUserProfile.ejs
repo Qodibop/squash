@@ -60,38 +60,17 @@
       <input type="file" name="user-picture" class="form-control-file" id="profilePictureUser" aria-describedby="fileHelp">
       <small id="fileHelp" class="form-text text-muted">Please select a profile picture, you can add it or modify it after signing up.</small>
     </div>
-
-    <fieldset class="form-group">
-    <label for="exampleSelect2">Ranking</label>
-    <div class="form-check">
-    <ul>
-    <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="shitty" value="1" checked="">
-        Shitty
-      </label>
-      </li>
-      <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="midShitty" value="2" checked="">
-        Mid-Shitty
-      </label>
-      </li>
-      <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="good" value="3" checked="">
-        Good
-      </label>
-      </li>
-      <li>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="ranking" id="god" value="4" checked="">
-        I am a God
-      </label>
-      </li>
-      </ul>
+    
+    <div class="form-group">
+      <label for="exampleSelect1">Ranking</label>
+      <select type="text" name="ranking" class="form-control" id="sectionEditRanking">
+        <option value="Shitty">Shitty</option>
+        <option value="Crapy">Crapy</option>
+        <option value="I am Bon, super Bon">I am Bon, super Bon</option>
+        <option value="Spaaaaartaaaaa!!">Spaaaaartaaaaa!!</option>
+        <option value="I am a God">I am a God!</option>
+      </select>
     </div>
-  </fieldset>
 
   <div class="form-group">
       <label for="exampleTextarea">Modo</label>
